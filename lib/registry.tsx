@@ -3,6 +3,8 @@
 import { defineRegistry } from "@json-render/react";
 import { shadcnComponents } from "@json-render/shadcn";
 import { catalog } from "@/lib/catalog";
+import { ButtonComponent } from "@/lib/registry/components/button";
+import { CardComponent } from "@/lib/registry/components/card";
 
 /**
  * React implementations for every component in {@link catalog}.
@@ -12,7 +14,7 @@ import { catalog } from "@/lib/catalog";
  */
 export const { registry } = defineRegistry(catalog, {
   components: {
-    Card: shadcnComponents.Card,
+    Card: CardComponent,
     Stack: shadcnComponents.Stack,
     Grid: shadcnComponents.Grid,
     Separator: shadcnComponents.Separator,
@@ -41,7 +43,7 @@ export const { registry } = defineRegistry(catalog, {
     Radio: shadcnComponents.Radio,
     Switch: shadcnComponents.Switch,
     Slider: shadcnComponents.Slider,
-    Button: shadcnComponents.Button,
+    Button: ButtonComponent,
     Link: shadcnComponents.Link,
     DropdownMenu: shadcnComponents.DropdownMenu,
     Toggle: shadcnComponents.Toggle,

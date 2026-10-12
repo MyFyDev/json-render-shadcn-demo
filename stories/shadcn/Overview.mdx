@@ -6,6 +6,8 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 Each component has a **json-render/catalog/{component}** story (catalog props for the AI demo) and, when a matching primitive exists under `components/ui`, **shadcn/ui/{component}/\*** stories for every export with controls aligned to the [shadcn/ui docs](https://ui.shadcn.com/docs/components).
 
+**Button** and **Card** catalog schemas are extended in `lib/catalog/definitions/` and rendered with local `components/ui` via `lib/registry/components/`.
+
 ## Components (36)
 
 | Category | Components |

@@ -106,7 +106,12 @@ export async function POST(req: Request): Promise<Response> {
 
     const result = streamText({
       model,
-      system: catalog.prompt(),
+      system: catalog.prompt({
+        customRules: [
+          "Button: prefer variant primary, secondary, danger, outline, ghost, link, or destructive; set size when not default.",
+          "Card: use size sm for compact layouts; optional footer for secondary actions or metadata.",
+        ],
+      }),
       prompt,
     });
 

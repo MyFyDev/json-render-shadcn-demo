@@ -2,6 +2,7 @@
 
 import type { ComponentType, ReactNode } from "react";
 import { shadcnComponents } from "@json-render/shadcn";
+import { localCatalogComponents } from "@/lib/registry/components";
 type ShadcnComponentName = keyof typeof shadcnComponents;
 
 const noopEmit = () => {};
@@ -39,7 +40,8 @@ export function renderShadcn(
   props: Record<string, unknown>,
   extras?: ShadcnStoryExtras,
 ): ReactNode {
-  const Component = shadcnComponents[name] as unknown as ShadcnRenderComponent;
+  const Component = (localCatalogComponents[name] ??
+    shadcnComponents[name]) as unknown as ShadcnRenderComponent;
 
   return (
     <Component

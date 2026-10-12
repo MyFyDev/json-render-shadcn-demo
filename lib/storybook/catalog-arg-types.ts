@@ -1,7 +1,11 @@
-import { shadcnComponentDefinitions } from "@json-render/shadcn/catalog";
 import type { z } from "zod";
 
-type JsonRenderCatalogName = keyof typeof shadcnComponentDefinitions;
+import {
+  catalogComponentDefinitions,
+  type CatalogComponentName,
+} from "@/lib/catalog/component-definitions";
+
+type JsonRenderCatalogName = CatalogComponentName;
 
 type ZodDef = { type?: string; innerType?: z.ZodType; entries?: Record<string, string> };
 
@@ -47,7 +51,7 @@ export function catalogStoryControls(name: JsonRenderCatalogName): {
   defaultArgs: Record<string, unknown>;
   description: string;
 } {
-  const definition = shadcnComponentDefinitions[name];
+  const definition = catalogComponentDefinitions[name];
   const shape = definition.props.shape;
   const argTypes: Record<string, unknown> = {};
   const defaultArgs: Record<string, unknown> = {};
